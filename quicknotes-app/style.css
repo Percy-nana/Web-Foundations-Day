@@ -1,0 +1,231 @@
+/* --- Neumorphic Setup & Colors --- */
+:root {
+  --bg-color: #e0e5ec;
+  --text-main: #2d3748;
+  --text-muted: #718096;
+  
+  /* Neumorphic Outer Soft Shadow */
+  --shadow-out: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  --shadow-out-sm: 4px 4px 10px #bebebe, -4px -4px 10px #ffffff;
+  
+  /* Neumorphic Inset Shadow for Inputs */
+  --shadow-in: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+  
+  /* Accent Colors */
+  --primary-gradient: linear-gradient(135deg, #6366f1, #a855f7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* Main Container Card */
+main, .container {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  padding: 2.5rem 2rem;
+  border-radius: 30px;
+  box-shadow: var(--shadow-out);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* App Header */
+header, .header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 0.25rem;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Extruded Sections */
+section, .card {
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-out-sm);
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-main);
+}
+
+/* --- Form Layout Fixes --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+/* Inset Neumorphic Inputs */
+input[type="text"], 
+textarea, 
+select {
+  width: 100%;
+  background-color: var(--bg-color);
+  border: none;
+  outline: none;
+  padding: 0.85rem 1.25rem;
+  border-radius: 50px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-in);
+  transition: all 0.2s ease;
+}
+
+textarea {
+  border-radius: 16px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Action Button Layout */
+button, input[type="submit"] {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start; /* Keeps the button naturally sized inside the form */
+  box-shadow: 4px 6px 15px rgba(99, 102, 241, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 8px 20px rgba(99, 102, 241, 0.45);
+}
+
+button:active, input[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* Search Field Styling */
+#search-input, .search-box {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* --- Assessment Requirements (Note Cards, Categories & Responsive) --- */
+.note-card {
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  border-left: 6px solid #cbd5e1;
+  box-shadow: var(--shadow-out-sm);
+  transition: transform 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+}
+
+.note-metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.error-message, .validation-error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+/* Category Accents & Badges */
+.category-personal {
+  border-left-color: #3b82f6;
+}
+
+.category-work {
+  border-left-color: #f59e0b;
+}
+
+.category-study {
+  border-left-color: #10b981;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-in);
+}
+
+.category-personal .category-badge { color: #1d4ed8; }
+.category-work .category-badge { color: #b45309; }
+.category-study .category-badge { color: #047857; }
+
+/* Responsive Media Query (Max-width 600px) */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  main, .container {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  button, input[type="submit"] {
+    width: 100%; /* Expands to full width only on small mobile screens */
+    align-self: stretch;
+  }
+
+  .note-metadata {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

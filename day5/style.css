@@ -1,0 +1,187 @@
+/* ---------- Tokens ---------- */
+:root {
+    --bg: #e4e9f4;
+    --surface: #e9eef8;
+    --text: #2b3a55;
+    --text-muted: #6b7a96;
+    --heading: #2d3a5c;
+    --accent: #6366f1;
+    --accent-2: #8b5cf6;
+    --shadow-dark: #c2c9dd;
+    --shadow-light: #ffffff;
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 40px 16px;
+}
+
+.app {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--heading);
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin: 6px 0 28px;
+}
+
+/* ---------- Soft raised panels ---------- */
+.panel {
+    background: var(--surface);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 10px 10px 24px var(--shadow-dark),
+                -10px -10px 24px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    background: var(--surface);
+    border-radius: 22px;
+    padding: 26px;
+    box-shadow: 6px 6px 14px var(--shadow-dark),
+                -6px -6px 14px var(--shadow-light);
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 18px;
+}
+
+/* ---------- Label + pressed-in pill input ---------- */
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    box-shadow: inset 4px 4px 9px var(--shadow-dark),
+                inset -4px -4px 9px var(--shadow-light);
+    transition: box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #94a0ba;
+}
+
+input[type="text"]:focus {
+    box-shadow: inset 4px 4px 9px var(--shadow-dark),
+                inset -4px -4px 9px var(--shadow-light),
+                0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+/* ---------- Gradient pill button ---------- */
+button {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #ffffff;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(99, 102, 241, 0.35);
+    transition: transform 0.12s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    box-shadow: 0 10px 22px rgba(99, 102, 241, 0.45);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Disabled while loading */
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* ---------- Status message ---------- */
+#status {
+    min-height: 1.4em;
+    margin: 16px 4px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ---------- User list ---------- */
+ul {
+    list-style: none;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* No empty gap before users are loaded */
+ul:empty {
+    display: none;
+}
+
+li {
+    padding: 16px 20px;
+    border-radius: 18px;
+    background: var(--surface);
+    font-size: 0.9rem;
+    box-shadow: inset 3px 3px 7px var(--shadow-dark),
+                inset -3px -3px 7px var(--shadow-light);
+}
+
+li strong {
+    display: block;
+    font-size: 1.02rem;
+    color: var(--heading);
+    margin-bottom: 4px;
+}
+
+li div {
+    color: var(--text-muted);
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+    body { padding: 24px 12px; }
+    .panel { padding: 14px; border-radius: 22px; }
+    .card { padding: 20px; }
+    h1 { font-size: 1.8rem; }
+}

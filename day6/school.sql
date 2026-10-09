@@ -1,7 +1,7 @@
+PRAGMA foreign_keys = ON;
+
 -- Day 6 assignment: A School Database (SQLite)
 -- Run the whole file in sqliteonline.com (choose SQLite) or with: sqlite3 :memory: < school.sql
-
-PRAGMA foreign_keys = ON;
 
 DROP TABLE IF EXISTS enrolments;
 DROP TABLE IF EXISTS courses;
